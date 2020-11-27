@@ -322,8 +322,7 @@ import Layout from './Layout'
 
 resolveComponent: name => import(`./Pages/${name}`)
   .then(({ default: page }) => {
-    page.layout = page.layout === undefined ? Layout : page.layout
-    return page
+    return { layout: DefaultLayout, ...page };
   }),
 ```
 
